@@ -8,15 +8,17 @@
   --logo-black-color: #000000;
   --header-border-color: #ececec;
   --border-color: #eeeeee;
+  --hero-bg-color: #c4c4c4;
+  --hero-gradient-color: rgba(47, 48, 58, 0.4);
   --footer-bg-color: #2f303a;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
-  --primary-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  --secondary-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  --filter-button-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
-    0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-  --work-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-    0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  --primary-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  --secondary-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgba(0, 0, 0, 0.2);
+  --filter-button-shadow: 0 3px 1px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12);
+  --work-card-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 body {
@@ -169,15 +171,33 @@ img {
 /* Hero */
 
 .hero {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  background-color: var(--footer-bg-color);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-top: 200px;
+  padding-bottom: 200px; */
+
+  background-color: var(--hero-bg-color);
+  /* если картинка не загрузится */
+  background-image: linear-gradient(
+      var(--hero-gradient-color),
+      var(--hero-gradient-color)
+    ),
+    url('../images/hero-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* text-align: center; */
 }
 
 .hero__title {
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   width: 696px;
   margin-top: 0;
   margin-bottom: 30px;
@@ -291,7 +311,7 @@ img {
 }
 
 .team-members__card {
-  width: calc(25% - 30px);
+  width: calc(100% / 4 - 30px);
   margin: 15px;
 
   box-shadow: var(--secondary-box-shadow);
